@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Manager | Homepage</title>
+    <script>
+        var home = document.getElementById("home");
+        home.classList.add("active");
+    </script>
+</head>
+<body>
+<!--- Image Slider --->
+<div id="carouselFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselFade" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselFade" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselFade" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselFade" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselFade" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#carouselFade" data-bs-slide-to="5" aria-label="Slide 6"></button>
+    </div>        
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="../img/background.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption">
+                <h1 class="display-2">Online Exam</h1>
+                <h3>Easy Access to Exams Anytime/Anywhere</h3>
+                <button 
+                    Onclick="location.href='../php/browse.php'"
+                    type="button" class="btn btn-outline-light btn-lg"
+                    >VIEW DEMO</button>
+                <button 
+                    Onclick="location.href='../php/signup.php'"
+                    type="button" class="btn btn-primary btn-lg"
+                    >Get Started</button>
+            </div>
+        </div>
+          <div class="carousel-item">
+            <img src="../img/background2.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="../img/background3.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="../img/background.png" class="d-block w-100" alt="...">
+            <div class="carousel-caption">
+                <h1 class="display-2">Bootstrap</h1>
+                <h3>Complete Website Layout</h3>
+                <button 
+                    Onclick="location.href='../php/browse.php'"
+                    type="button" class="btn btn-outline-light btn-lg"
+                    >VIEW DEMO</button>
+                <button 
+                    Onclick="location.href='../php/signup.php'"
+                    type="button" class="btn btn-primary btn-lg"
+                    >Get Started</button>
+            </div>
+        </div>
+          <div class="carousel-item">
+            <img src="../img/background2.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="../img/background3.png" class="d-block w-100" alt="...">
+          </div>
+            </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+<!--- Jumbotron --->
+    <div class="container-fluid">
+        <div class="row jumbotron">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+                <p class="lead">An online Exam hosting service allows individuals and organization 
+                    to make their Exams accessible via the World Wide Web assigning whenever/wherever with ease</p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
+                <a href="../php/testmaking.php"><button type="button" class="btn btn-outline-secondary btn-lg">Exam Hosting</button></a>
+            </div>
+        </div>
+    </div>
+<!---CONTAINER-STARTS--->
+    <div class="container-xxl">
+
+<!--- Welcome Section --->
+    <div class="container-fluid padding">
+        <div class="row welcome text-center">
+            <div class="col-12">
+                <h1 class="display-4">Exam online with ease</h1>
+            </div>
+            <hr>
+            <div class="col-12">
+                <p class="lead">Welcome to Our online exam manager website! Built from the
+                    Groundup with the latest versions of HTML,CSS and BOOTSTRAP</p>
+            </div>
+        </div>
+    </div>
+<!--- Three Column Section --->
+    <div class="container-fluid padding">
+        <div class="row text-center padding">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <i class="fas fa-code"></i>
+                <h3>HTML5</h3>
+                <p>Built with the lastest verson of HTML, HTML5.</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <i class="fas fa-bold"></i>
+                <h3>BOOTSTRAP</h3>
+                <p>Built with the lastest verson of Bootstrap, Bootstrap5.</p>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <i class="fab fa-css3"></i>
+                <h3>CSS3</h3>
+                <p>Built with the lastest verson of CSS, CSS3.</p>
+            </div>
+            <div>
+                <hr class="my-4">
+            </div>
+        </div>
+    </div>
+<!--- Two Column Section --->
+<div class="container-fluid padding">
+    <div class="row padding">
+       <div class="col-lg-6">
+          <h2>If you use our website...</h2>
+          <p>Our database will handle all your data no matter the size
+          with very precise data management without room for error!!</p>
+          <p>Every user's information will be recorded without failure and
+          will be assigned the correct proper grades that the exam hoster 
+          had determined with guaranteed flexibility to use by any means necessary.</p>
+          <p>It can also display the information differently by the user's taste
+          and hoster can pick to show the results to public by choice.</p>
+          <br>
+          <a href="../php/about.php" class="btn btn-primary">Learn More</a>
+       </div>
+       <div class="col-lg-6">
+          <img src="../img/desk.png" class="img-fluid">
+       </div>
+    </div>
+    </div>
+    <hr class="my-4">
+<!--- Emoji Section --->
+    <button class="fun" data-toggle="collapse" data-target="#emoji">click for fun</button>
+    <div id="emoji" class="collapse">
+    <div class="container-fluid padding">
+    <div class=" row text-center">
+        <div class="col-sm-6 col-md-3">
+            <img class="gif" src="../img/gif/panda.gif">
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <img class="gif" src="../img/gif/poo.gif">
+        </div>
+       <div class="col-sm-6 col-md-3">
+            <img class="gif" src="../img/gif/unicorn.gif">
+        </div>
+       <div class="col-sm-6 col-md-3">
+            <img class="gif" src="../img/gif/chicken.gif">
+        </div>
+    </div>
+    </div>
+    </div>
+<!-- ======= Our Team Section ======= -->
+    <section id="team" class="team section-bg">
+        <div class="container-fluid padding m-1">
+            <div class="row justify-content-center">
+    
+            <div class="col-lg-4 col-sm-6 d-flex align-items-stretch resize">
+              <div class="member" data-aos="fade-up">
+                <div class="member-img">
+                  <img src="../img/member1.jpg" class="img-fluid frame" alt="">
+                  <div class="social">
+                    <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter"></i></a>
+                    <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="card-body member-info">
+                    <h4 class="card-title">Sith Panchakrong</h4>
+                   <p class="card-text">Mr.Panchakrong is highly skilled in
+                   javascript/jquery/php/database with 25 years of experience.Single</p>
+                    <a href="../php/about.php#member1" class="btn btn-outline-secondary">See Profile</a>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-4 col-sm-6 d-flex align-items-stretch resize">
+                <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-img">
+                  <img src="../img/member2.jpg" class="img-fluid frame" alt="">
+                  <div class="social">
+                    <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter"></i></a>
+                    <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="card-body member-info">
+                    <h4 class="card-title">Rith Panhapich</h4>
+                   <p class="card-text">Mr.Panhapich is highly skilled in html/css/bootstrap/javascript
+                   with 20 years of experience.Single</p>
+                   <a href="../php/about.php#member2" class="btn btn-outline-secondary">See Profile</a>
+                </div>
+             </div>
+            </div>
+    
+            <div class="col-lg-4 col-sm-6 d-flex align-items-stretch resize">
+                <div class="member" data-aos="fade-up" data-aos-delay="200">
+                <div class="member-img">
+                  <img src="../img/member3.jpg" class="img-fluid frame" alt="">
+                  <div class="social">
+                    <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter"></i></a>
+                    <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="card-body member-info">
+                    <h4 class="card-title">Kong Somphos </h4>
+                   <p class="card-text">Ms.Somphos  is highly skilled in script writer/pragraph/assistant
+                   with 18 years of experience.Single</p>
+                   <a href="../php/about.php#member3" class="btn btn-outline-secondary">See Profile</a>
+                </div>
+             </div>
+            </div>
+        
+    
+            <div class="col-lg-4 col-sm-6 d-flex align-items-stretch resize">
+                <div class="member" data-aos="fade-up">
+                <div class="member-img">
+                  <img src="../img/member4.jpg" class="img-fluid frame" alt="">
+                  <div class="social">
+                    <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter"></i></a>
+                    <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="card-body member-info">
+                    <h4 class="card-title">Ly Sreypov</h4>
+                   <p class="card-text">Ms.L-Sreypov is hightly skilled in designing/assistant/advisor
+                   with 22 years of experience.Single</p>
+                    <a href="../php/about.php#member4" class="btn btn-outline-secondary">See Profile</a>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-4 col-sm-6 d-flex align-items-stretch resize">
+                <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-img">
+                  <img src="../img/member5.jpg" class="img-fluid frame" alt="">
+                  <div class="social">
+                    <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter"></i></a>
+                    <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="card-body member-info">
+                    <h4 class="card-title">Heng Sreypov</h4>
+                   <p class="card-text">Ms.H-Sreypov is hightly skilled in designing/assistant/advisor
+                       with 22 years of experience.Single</p>
+                   <a href="../php/about.php#member5" class="btn btn-outline-secondary">See Profile</a>
+                </div>
+             </div>
+            </div>
+    
+            <div class="col-lg-4 col-sm-6 d-flex align-items-stretch resize">
+                <div class="member" data-aos="fade-up" data-aos-delay="200">
+                <div class="member-img">
+                  <img src="../img/member6.jpg" class="img-fluid frame" alt="">
+                  <div class="social">
+                    <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter"></i></a>
+                    <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="card-body member-info">
+                    <h4 class="card-title">Chim Bunthoeurn</h4>
+                   <p class="card-text">Mr.Bunthoeurn is a highly skilled webdev/turtor/teacher
+                   with 10000 years of experience.Married</p>
+                   <a href="../php/about.php#member6" class="btn btn-outline-secondary">See Profile</a>
+                </div>
+             </div>
+            </div>
+        
+          </div>
+    
+        </div>
+    </section><!-- End Our Team Section -->
+
+<!--- Cards --->
+    <div class="container-fluid padding">
+        <div class="row padding">
+           <div class="col-lg-9">
+              <h2>Our Philosophy</h2>
+              <div style="font-size: 20px;">
+                <p>We know that greatness in a disruptive era requires bold
+                ambition, curious talent and a culture that believes we're smarter
+                together.</p>
+                <p>We approach every chalilenge holistically, with best-in-class
+                expertise in data, creativity, media, technology, search, social and
+                more. We call this Alchemy. It has the power to build our clients'
+                brands and transform their business. And while it may seem like
+                magic, we've got it down to a science.</p>
+                <br>
+              </div>
+           </div>
+           <div class="col-lg-3">
+              <img src="../img/rupp.png" class="img-fluid">
+           </div>
+        </div>
+    </div>
+</div>
+<!---^^CONTAINER-ENDS^^--->
+</body>
+</html>
