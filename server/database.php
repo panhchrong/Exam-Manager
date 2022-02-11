@@ -28,11 +28,7 @@ function checkIfResultExist($testid, $perid)
     $query = 'select * from tbltestresult where perid = ' . $perid . ' and testid = ' . $testid;
     $result = $conn->query($query);
     if (!empty($result) && $result->num_rows > 0) {
-        $query_result = array();
-        while ($row = $result->fetch_assoc()) {
-            array_push($query_result, $row);
-        };
-        return $query_result;
+        return $result->fetch_assoc();
     }
     return null;
 }
@@ -163,4 +159,17 @@ function countPaticipant($id)
     $conn = ConnectToDatabase('examdb');
     $result = $conn->query($sql);
     return $result->fetch_assoc();
+}
+function getParticipantDetail($testid)
+{
+    $conn = ConnectToDatabase('examdb');
+    $query = 'select * from testaccepted where testid = \'' . $testid . '\'';
+    $result = $conn->query($query);
+    if (!empty($result) && $result->num_rows > 0) {
+        $query_result = array();
+        while ($row = $result->fetch_assoc()) {
+            array_push($query_result, $row);
+        };
+        return $query_result;
+    } else return null;
 }

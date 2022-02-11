@@ -82,6 +82,10 @@ if (empty($_GET['code']) && empty($_GET['id'])) {
 
                 </div>
             </div>
+            <?php
+            if ($_SESSION['ID'] == $test['hostID'])
+                require('./ParticipantList.php');
+            ?>
         </div>
     </div>
     <script>
