@@ -32,6 +32,16 @@ function checkIfResultExist($testid, $perid)
     }
     return null;
 }
+function checkIfTestJoined($testid, $perid)
+{
+    $conn = ConnectToDatabase('examdb');
+    $query = 'select * from testaccepted where perid = ' . $perid . ' and testid = ' . $testid;
+    $result = $conn->query($query);
+    if (!empty($result) && $result->num_rows > 0) {
+        return $result->fetch_assoc();
+    }
+    return null;
+}
 function getTestResultperID($id)
 {
     $conn = ConnectToDatabase('examdb');
@@ -45,6 +55,14 @@ function getTestResultperID($id)
         return $query_result;
     }
     return null;
+}
+function JoinTest($testid, $perid)
+{
+    $sql = "insert into testaccepted values(" . $perid . ", " . $testid . ", 'ongoing')";
+    $conn = ConnectToDatabase('examdb');
+    if ($conn->query($sql) === TRUE)
+        echo "";
+    else echo "Error: " . $sql . "<br>" . $conn->error;
 }
 function getTestResultID($id)
 {

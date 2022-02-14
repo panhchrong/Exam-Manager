@@ -37,7 +37,7 @@ if (isset($_SESSION['ID']) && !empty($_SESSION['ID'])) {
                 New Test
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Join New Test</a>
+                <a class="dropdown-item" href="./JoinTest.php">Join New Test</a>
                 <a class="dropdown-item" href="./testmaking.php">Publish Your Own</a>
             </div>
         </div>
