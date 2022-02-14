@@ -59,7 +59,7 @@ $user_test = getTestResultperID($user['ID']);
             <div class="shadow col-md-10 mt-5 pt-5 rounded">
                 <h3 class="mt-3 text-center">Test You Participated</h3>
                 <form action="TestDetail.php" method="post" id='Test-Table'>
-                    <table class="table table-hover">
+                    <table class="table table-hover" id='result'>
                         <thead>
                             <tr>
                                 <th>Test ID</th>
