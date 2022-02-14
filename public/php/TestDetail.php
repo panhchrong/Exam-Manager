@@ -16,8 +16,8 @@ if (empty($_GET['code']) && empty($_GET['id'])) {
     else if (isset($_GET['id']))
         $test = getTest($_GET['id']);
     $host = getUserWithID($test['hostID']);
-    $startdate = new DateTime($test['TestStartDate']);
-    $enddate = new DateTime($test['TestEndDate']);
+    $startdate = new DateTime($test['TestStartDate'], new DateTimeZone("Asia/Phnom_Penh"));
+    $enddate = new DateTime($test['TestEndDate'], new DateTimeZone("Asia/Phnom_Penh"));
 }
 ?>
 <!DOCTYPE html>
@@ -50,9 +50,9 @@ if (empty($_GET['code']) && empty($_GET['id'])) {
                     <p class="text-primary font-weight-bold">Test Name: </p>
                     <p><?php echo $test['testName'] ?></p>
                     <p class="text-primary font-weight-bold">Test Start On: </p>
-                    <p><?php echo $startdate->format('d M Y, h:i') ?></p>
+                    <p><?php echo $startdate->format('d M Y, H:i ') ?></p>
                     <p class="text-primary font-weight-bold">Test End On: </p>
-                    <p><?php echo $enddate->format('d M Y, h:i') ?></p>
+                    <p><?php echo $enddate->format('d M Y, H:i ') ?></p>
                     <p class="text-primary font-weight-bold">Duration: </p>
                     <p><?php echo $test['testDuration'] . 'mn' ?></p>
                     <p class="text-primary font-weight-bold">Possible Score: </p>
@@ -61,9 +61,9 @@ if (empty($_GET['code']) && empty($_GET['id'])) {
                 <div class="col-md-6 p-2">
                     <?php
                     if (isset($_GET['code'])) {
-                        $startdate = new DateTime($test['TestStartDate']);
-                        $enddate = new DateTime($test['TestEndDate']);
-                        $now = new DateTime();
+                        $startdate = new DateTime($test['TestStartDate'], new DateTimeZone("Asia/Phnom_Penh"));
+                        $enddate = new DateTime($test['TestEndDate'], new DateTimeZone("Asia/Phnom_Penh"));
+                        $now = new DateTime("now", new DateTimeZone("Asia/Phnom_Penh"));
                         echo "<a class = 'btn btn-danger' href='./browse.php'>Cancel</a>";
                         if ($_SESSION['ID'] == $test['hostID'])
                             echo "<div class='btn btn-info ml-3'>Participants: " . countPaticipant($test['testID'])['x'] . "</div>";
@@ -72,8 +72,8 @@ if (empty($_GET['code']) && empty($_GET['id'])) {
                         else if ($startdate->getTimestamp() - $now->getTimestamp() < 0)
                             echo "<button class='btn btn-success ml-3' id=" . $_GET['code'] . " onclick='takeTest(this)'>Proceed</button>";
                         else {
-                            $diff = date_diff($now, $startdate);
-                            echo "<div class='btn btn-info ml-3'>Starts in " . $diff->format('%d days, %h hours, %i minutes');
+                            $diff = $startdate->getTimestamp() - $now->getTimestamp();
+                            echo "<div class='btn btn-info ml-3'>Starts in " . ($diff > 86400 ? round($diff / 86400) . " days " : ($diff > 3600 ? round($diff / 3600) . " hours " : ($diff > 60 ? round($diff / 60) . " Minutes " : "A few seconds")));
                         }
                     } else if (isset($_GET['id'])) {
                         echo "<a class = 'btn btn-success' href='./profile.php'>Back</a>";

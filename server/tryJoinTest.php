@@ -19,9 +19,9 @@ if (!empty($result) && $result->num_rows > 0) {
     $test = $result->fetch_assoc();
 }
 //print_r($test);
-$startdate = new DateTime($test['TestStartDate']);
-$enddate = new DateTime($test['TestEndDate']);
-$now = new DateTime();
+$startdate = new DateTime($test['TestStartDate'], new DateTimeZone("Asia/Phnom_Penh"));
+$enddate = new DateTime($test['TestEndDate'], new DateTimeZone("Asia/Phnom_Penh"));
+$now = new DateTime("now", new DateTimeZone("Asia/Phnom_Penh"));
 if ($_SESSION['ID'] == $test['hostID']) {
     $msg = 'This is your own test';
     $class = 'col-md-10 rounded p-3 bg-warning';

@@ -49,8 +49,8 @@ if (isset($_SESSION['ID']) && !empty($_SESSION['ID'])) {
                 if (!empty($participated_test)) {
                     $now = new DateTime();
                     foreach ($participated_test as $test) {
-                        $startdate = new DateTime($test['TestStartDate']);
-                        $enddate = new DateTime($test['TestEndDate']);
+                        $startdate = new DateTime($test['TestStartDate'], new DateTimeZone("Asia/Phnom_Penh"));
+                        $enddate = new DateTime($test['TestEndDate'], new DateTimeZone("Asia/Phnom_Penh"));
                         if ($enddate->getTimestamp() - $now->getTimestamp() < 0) continue;
                         echo "<div class = 'col-md-3 test-container rounded-2 m-1' id = '" . $test['testCode'] . "' onclick = 'tryTakeTest(this)'>";
                         echo "<p class = 'text-warning'>Test Code: " . $test['testCode'] . "</p>";
