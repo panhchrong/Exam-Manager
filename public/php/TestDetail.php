@@ -65,7 +65,9 @@ if (empty($_GET['code']) && empty($_GET['id'])) {
                         $enddate = new DateTime($test['TestEndDate'], new DateTimeZone("Asia/Phnom_Penh"));
                         $now = new DateTime("now", new DateTimeZone("Asia/Phnom_Penh"));
                         echo "<a class = 'btn btn-danger' href='./browse.php'>Cancel</a>";
-                        if ($_SESSION['ID'] == $test['hostID'])
+                        if (isset($_GET['type']) && $_GET['type'] == 'join' && $_SESSION['ID'] != $test['hostID'] && $enddate->getTimestamp() - $now->getTimestamp() > 0) {
+                            echo "<button class='btn btn-success ml-3' id=" . $_GET['code'] . " onclick='JoinTest(this)'>Join</button>";
+                        } else if ($_SESSION['ID'] == $test['hostID'])
                             echo "<div class='btn btn-info ml-3'>Participants: " . countPaticipant($test['testID'])['x'] . "</div>";
                         else if ($enddate->getTimestamp() - $now->getTimestamp() < 0)
                             echo "<div class='btn btn-secondary ml-3'>Test Overdued</div>";
@@ -91,6 +93,10 @@ if (empty($_GET['code']) && empty($_GET['id'])) {
     <script>
         function takeTest(code) {
             window.location = "./TestTaking.php?code=" + code.id;
+        }
+
+        function JoinTest(code) {
+            window.location = "../../server/tryJoinTest.php?code=" + code.id;
         }
     </script>
 </body>

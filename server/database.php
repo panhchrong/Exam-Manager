@@ -45,7 +45,7 @@ function checkIfTestJoined($testid, $perid)
 function getTestResultperID($id)
 {
     $conn = ConnectToDatabase('examdb');
-    $query = 'select * from tbltestresult where perid = ' . $id;
+    $query = 'select * from tbltestresult inner join tbltest on tbltest.testid = tbltestresult.testid where perid = ' . $id;
     $result = $conn->query($query);
     if (!empty($result) && $result->num_rows > 0) {
         $query_result = array();

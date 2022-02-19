@@ -29,27 +29,10 @@
     <link href="../css/style.css" rel="stylesheet" >
     <script src="../js/about.js"></script>
 
-    <script>
-        $(window).on('resize', function() {
-          var win = $(this);
-          if (win.width() < 650) {
-        
-            $('#navbar').addClass('sticky-sm-top');
-            $('#navbar').removeClass('fixed-top');
-          } 
-          else{
-            $('#navbar').addClass('fixed-top');
-            $('#navbar').removeClass('sticky-sm-top');
-          }
-        });
-        $('.dropdown').on('show.bs.dropdown', function() {
-        $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
-        });
-    </script>
 </head>
 <body>
     <!--- Navigation --->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" id="navbar">
+    <nav class="navbar sticky-sm-top navbar-expand-lg navbar-dark bg-dark" id="navbar">
         <div class="container">
         <a href="../php/index.php" class="navbar-brand mb-0 h1">
             <img

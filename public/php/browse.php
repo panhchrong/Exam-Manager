@@ -14,6 +14,11 @@ if (isset($_SESSION['ID']) && !empty($_SESSION['ID'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Browsing <?php echo " - " . $_SESSION['Username'] ?></title>
+    <script>
+        $('#myModal').on('shown.bs.modal', function() {
+            $('#myInput').trigger('focus')
+        })
+    </script>
 </head>
 
 <body>
@@ -37,8 +42,36 @@ if (isset($_SESSION['ID']) && !empty($_SESSION['ID'])) {
                 New Test
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="./JoinTest.php">Join New Test</a>
-                <a class="dropdown-item" href="./testmaking.php">Publish Your Own</a>
+                <a class="dropdown-item" href="./JoinTest.php">Join Public Test</a>
+
+                <!-- Button trigger Popup -->
+                <button type="button" class="dropdown-item" data-toggle="modal" data-target="#exampleModalCenter">
+                    Join Private Test
+                </button>
+
+                <a class="dropdown-item" href="./testmaking.php">Create New Test</a>
+            </div>
+            <!-- Popup -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Test Code</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="#" method='post'>
+                                <input class="codebox" type="text" name="code" id="code">
+                        </div>
+                        <div class="modal-footer">
+                            <a type="button" class="btn btn-secondary" data-dismiss="modal">Close</a>
+                            <a onclick="tryJoinTest(this)" type="submit" class="btn btn-primary">Join Test</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-12 mt-4 shadow">
@@ -52,7 +85,7 @@ if (isset($_SESSION['ID']) && !empty($_SESSION['ID'])) {
                         $startdate = new DateTime($test['TestStartDate'], new DateTimeZone("Asia/Phnom_Penh"));
                         $enddate = new DateTime($test['TestEndDate'], new DateTimeZone("Asia/Phnom_Penh"));
                         if ($enddate->getTimestamp() - $now->getTimestamp() < 0) continue;
-                        echo "<div class = 'col-md-3 test-container rounded-2 m-1' id = '" . $test['testCode'] . "' onclick = 'tryTakeTest(this)'>";
+                        echo "<div class = 'col-md-3 test-container rounded-2 m-1' style='cursor:pointer' id = '" . $test['testCode'] . "' onclick = 'tryTakeTest(this)'>";
                         echo "<p class = 'text-warning'>Test Code: " . $test['testCode'] . "</p>";
                         echo "<hr class = 'h-0 w-100 bg-warning'";
                         echo "<p>Test Name: " . $test['testName'] . "</p>";
@@ -77,7 +110,7 @@ if (isset($_SESSION['ID']) && !empty($_SESSION['ID'])) {
                         $startdate = new DateTime($test['TestStartDate']);
                         $enddate = new DateTime($test['TestEndDate']);
                         if ($enddate->getTimestamp() - $now->getTimestamp() < 0) continue;
-                        echo "<div class = 'col-md-3 test-container rounded-2 m-1' id = '" . $test['testCode'] . "' onclick = 'tryTakeTest(this)'>";
+                        echo "<div class = 'col-md-3 test-container rounded-2 m-1' style='cursor:pointer' id = '" . $test['testCode'] . "' onclick = 'tryTakeTest(this)'>";
                         echo "<p class = 'text-warning'>Test Code: " . $test['testCode'] . "</p>";
                         echo "<hr class = 'h-0 w-100 bg-warning'";
                         echo "<p>Test Name: " . $test['testName'] . "</p>";
@@ -98,6 +131,12 @@ if (isset($_SESSION['ID']) && !empty($_SESSION['ID'])) {
     <script>
         function tryTakeTest(test) {
             window.location = "./TestDetail.php?code=" + test.id;
+        }
+
+        function tryJoinTest(test) {
+            var code = document.getElementById('code').value;
+            if (code == '') return;
+            window.location = "./TestDetail.php?type=join&code=" + code;
         }
     </script>
 </body>

@@ -1,16 +1,18 @@
 <?php
 session_start();
-if (empty($_POST)) {
+if (empty($_POST) && empty($_GET)) {
     header('location: ../public/');
     exit;
 } else if (empty($_SESSION['ID'])) {
     header('location: ../public/login.php');
     exit;
 }
-echo $_POST['code'];
 include('./database.php');
+$code = '';
+if (!isset($_POST['code'])) $code = $_GET['code'];
+else $code = $_POST['code'];
 $conn = ConnectToDatabase('examdb');
-$sql = "select * from tbltest inner join tblperson on tbltest.hostID = tblperson.ID where tbltest.testcode = '" . $_POST['code'] . "'";
+$sql = "select * from tbltest inner join tblperson on tbltest.hostID = tblperson.ID where tbltest.testcode = '" . $code . "'";
 $result = $conn->query($sql);
 $test = null;
 $msg = "Test Joined Successfully";

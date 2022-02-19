@@ -7,8 +7,8 @@ if (empty($participants)) exit;
 </div>
 <div class="col-md-10 p-3 shadow rounded">
     <?php
-    echo "<table class='table table-striped'>";
-    echo "<tr>";
+    echo "<table class='table table-dark'>";
+    echo "<tr class='text-success'>";
     echo "<th>Test Taker Name</th>";
     echo "<th>Email</th>";
     echo "<th>Test Status</th>";

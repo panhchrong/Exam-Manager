@@ -59,10 +59,10 @@ $user_test = getTestResultperID($user['ID']);
             <div class="shadow col-md-10 mt-5 pt-5 rounded">
                 <h3 class="mt-3 text-center">Test You Participated</h3>
                 <form action="TestDetail.php" method="post" id='Test-Table'>
-                    <table class="table table-hover" id='result'>
+                    <table class="table table-striped table-hover" id='result'>
                         <thead>
-                            <tr>
-                                <th>Test ID</th>
+                            <tr class="text-success">
+                                <th>Test Name</th>
                                 <th>Submit Date</th>
                                 <th>Score</th>
                             </tr>
@@ -71,10 +71,10 @@ $user_test = getTestResultperID($user['ID']);
                             <?php
                             if (!empty($user_test)) {
                                 foreach ($user_test as $row) {
-                                    $date = new DateTime($row['SubmitDate']);
+                                    $date = new DateTime($row['SubmitDate'], new DateTimeZone("Asia/Phnom_Penh"));
                                     echo '<tr id = "' . $row['testID'] . '" onclick = "getTestInfo(this)">';
-                                    echo '<td>' . $row['testID'] . '</td>';
-                                    echo '<td>' . $date->format('d M Y, h:i') . '</td>';
+                                    echo '<td>' . $row['testName'] . '</td>';
+                                    echo '<td>' . $date->format('d M Y, H:i') . '</td>';
                                     echo '<td>' . $row['score'] . '</td>';
                                     echo '</tr>';
                                 }
