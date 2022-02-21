@@ -191,3 +191,9 @@ function getParticipantDetail($testid)
         return $query_result;
     } else return null;
 }
+function updateTestStatus_Overdue($testid)
+{
+    $conn = ConnectToDatabase('examdb');
+    $query = "update testaccepted set _status = 'overdue' where _status = 'ongoing' and testid = " . $testid;
+    $conn->query($query);
+}

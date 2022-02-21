@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2022 at 08:53 AM
+-- Generation Time: Feb 21, 2022 at 06:40 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -31,20 +31,22 @@ CREATE TABLE `tblperson` (
   `ID` int(11) NOT NULL,
   `Username` text NOT NULL,
   `Email` text NOT NULL,
-  `_Password` text NOT NULL
+  `_Password` text NOT NULL,
+  `Picture` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tblperson`
 --
 
-INSERT INTO `tblperson` (`ID`, `Username`, `Email`, `_Password`) VALUES
-(38, 'Sith Panhchakroung', 'sithpanhchrong@gmail.com', '012890989'),
-(39, 'Heng Sreypov', 'sreypovheng@gmail.com', '123456678'),
-(40, 'rong2', '13123@asdf.com', '12345678'),
-(42, 'Dexbuild42069', 'abcdef@gmail.com', '123456789'),
-(43, 'rong2', 'email2@gmail.com', '12345678'),
-(44, 'pov', 'pov@gmail.com', '12345678');
+INSERT INTO `tblperson` (`ID`, `Username`, `Email`, `_Password`, `Picture`) VALUES
+(38, 'Sith Panhchakroung', 'sithpanhchrong@gmail.com', '012890989', '38ky4qwf1xlam61.jpg'),
+(39, 'Heng Sreypov', 'sreypovheng@gmail.com', '123456678', NULL),
+(40, 'rong2', '13123@asdf.com', '12345678', NULL),
+(42, 'Dexbuild42069', 'abcdef@gmail.com', '123456789', NULL),
+(43, 'rong2', 'email2@gmail.com', '12345678', NULL),
+(44, 'pov', 'pov@gmail.com', '12345678', NULL),
+(45, 'rong-cool', 'rong3@gmail.com', '12345678', '4578236548_p0_master1200.jpg');
 
 -- --------------------------------------------------------
 
@@ -171,7 +173,8 @@ INSERT INTO `tbltestresult` (`ID`, `perID`, `testID`, `SubmitDate`, `score`) VAL
 (21, 44, 45, '2022-02-10T04:24', 0),
 (22, 44, 48, '2022-02-10T12:39', 10),
 (23, 44, 47, '2022-02-14T07:48', 0),
-(24, 38, 54, '2022-02-19T08:41', 0);
+(24, 38, 54, '2022-02-19T08:41', 0),
+(25, 38, 53, '2022-02-20T08:44', 0);
 
 -- --------------------------------------------------------
 
@@ -193,13 +196,13 @@ INSERT INTO `testaccepted` (`perID`, `testID`, `_status`) VALUES
 (44, 44, 'completed'),
 (44, 45, 'completed'),
 (44, 48, 'completed'),
-(43, 48, 'ongoing'),
+(43, 48, 'overdue'),
 (44, 47, 'completed'),
-(44, 49, 'ongoing'),
+(44, 49, 'overdue'),
 (38, 50, 'ongoing'),
-(44, 51, 'ongoing'),
+(44, 51, 'overdue'),
 (44, 52, 'ongoing'),
-(38, 53, 'ongoing'),
+(38, 53, 'completed'),
 (38, 54, 'completed');
 
 --
@@ -244,7 +247,7 @@ ALTER TABLE `tbltestresult`
 -- AUTO_INCREMENT for table `tblperson`
 --
 ALTER TABLE `tblperson`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `tblquestions`
@@ -268,7 +271,7 @@ ALTER TABLE `tbltest`
 -- AUTO_INCREMENT for table `tbltestresult`
 --
 ALTER TABLE `tbltestresult`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

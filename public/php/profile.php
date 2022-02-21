@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header('location: ./Index.php');
 }
 $user = getUserWithID($_SESSION['ID']);
+$profile_pic = $user['Picture'] == '' ? '../img/profile-pic/profile-alt.png' : '../img/profile-pic/' . $user['Picture'];
 $user_test = getTestResultperID($user['ID']);
 ?>
 <html lang="en">
@@ -36,8 +37,8 @@ $user_test = getTestResultperID($user['ID']);
                 <div class="shadow row z-depth-3">
                     <div class="col-sm-4 bg-light rounded-left">
                         <div class="card-block text-center text-white">
-                            <img src="../img/profile-pic-alt.jpg" class="rounded-circle img-fluid" style="margin-top:4%">
-                            <button class="btn btn-success" style="margin: 5%;">Edit Profile</button>
+                            <img src=<?php echo $profile_pic ?> class="rounded-circle img-fluid" style="margin-top:4%">
+                            <a href="./ProfileEdit.php" class="btn btn-success" style="margin: 5%;">Edit Profile</a>
                         </div>
                     </div>
                     <div class="col-sm-8 bg-white rounded-right">

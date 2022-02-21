@@ -18,6 +18,11 @@ if (empty($_GET['code']) && empty($_GET['id'])) {
     $host = getUserWithID($test['hostID']);
     $startdate = new DateTime($test['TestStartDate'], new DateTimeZone("Asia/Phnom_Penh"));
     $enddate = new DateTime($test['TestEndDate'], new DateTimeZone("Asia/Phnom_Penh"));
+    if (empty($test)) {
+        echo "<script>alert('test dose not exist.')</script>";
+        header("location: ./browse.php");
+        exit;
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -28,7 +33,7 @@ if (empty($_GET['code']) && empty($_GET['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php require('../html/linker.html') ?>
-    <title>Testing in progress</title>
+    <title>Test Detail - <?php echo $test['testName'] ?></title>
 </head>
 
 <body>

@@ -109,7 +109,10 @@ if (isset($_SESSION['ID']) && !empty($_SESSION['ID'])) {
                     foreach ($published_test as $test) {
                         $startdate = new DateTime($test['TestStartDate']);
                         $enddate = new DateTime($test['TestEndDate']);
-                        if ($enddate->getTimestamp() - $now->getTimestamp() < 0) continue;
+                        if ($enddate->getTimestamp() - $now->getTimestamp() < 0) {
+                            updateTestStatus_Overdue($test['testID']);
+                            continue;
+                        }
                         echo "<div class = 'col-md-3 test-container rounded-2 m-1' style='cursor:pointer' id = '" . $test['testCode'] . "' onclick = 'tryTakeTest(this)'>";
                         echo "<p class = 'text-warning'>Test Code: " . $test['testCode'] . "</p>";
                         echo "<hr class = 'h-0 w-100 bg-warning'";
