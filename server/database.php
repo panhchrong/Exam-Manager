@@ -9,6 +9,34 @@ function ConnectToDatabase($dbname)
     }
     return $conn;
 }
+function getAllTest()
+{
+    $conn = ConnectToDatabase('examdb');
+    $query = 'select * from tbltest inner join tblperson on tbltest.hostID = tblperson.ID where ispublic = 1';
+    $result = $conn->query($query);
+    if (!empty($result) && $result->num_rows > 0) {
+        $query_result = array();
+        while ($row = $result->fetch_assoc()) {
+            array_push($query_result, $row);
+        };
+        return $query_result;
+    }
+    return null;
+}
+function searchTest($searchby, $searchvalue)
+{
+    $conn = ConnectToDatabase('examdb');
+    $query = "select * from tbltest inner join tblperson on tbltest.hostID = tblperson.ID where " . $searchby . " like '%" . $searchvalue . "%' and ispublic = 1";
+    $result = $conn->query($query);
+    if (!empty($result) && $result->num_rows > 0) {
+        $query_result = array();
+        while ($row = $result->fetch_assoc()) {
+            array_push($query_result, $row);
+        };
+        return $query_result;
+    }
+    return null;
+}
 function getUserWithID($id)
 {
     $conn = ConnectToDatabase('examdb');
@@ -98,7 +126,6 @@ function InsertTest($hostID, $testname, $teststartdate, $testenddate, $testdurat
     $conn = ConnectToDatabase('examdb');
     //$conn->query($sql);
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -107,9 +134,8 @@ function InsertQuestion($code, $question, $option1, $option2, $option3, $option4
 {
     $sql = "insert into tblquestions values('', '" . $code . "', '" . $question . "', '" . $option1 . "', '" . $option2 . "', '" . $option3 . "', '" . $option4 . "', '" . $correctoption . "', " . $score . ")";
     $conn = ConnectToDatabase('examdb');
-    if ($conn->query($sql) === TRUE)
-        echo "new question added";
-    else echo "Error: " . $sql . "<br>" . $conn->error;
+    if ($conn->query($sql) === TRUE) {
+    } else echo "Error: " . $sql . "<br>" . $conn->error;
 }
 function getPublishedTest($id)
 {
