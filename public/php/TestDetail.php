@@ -21,7 +21,6 @@ if (empty($_GET['code']) && empty($_GET['id'])) {
     if (empty($test)) {
         echo "<script>alert('test dose not exist.')</script>";
         header("location: ./browse.php");
-        exit;
     }
 }
 ?>
@@ -53,7 +52,7 @@ if (empty($_GET['code']) && empty($_GET['id'])) {
                 </div>
                 <div class="col-md-6 p-2">
                     <p class="text-primary font-weight-bold">Test Name: </p>
-                    <p><?php echo $test['testName'] ?></p>
+                    <p><?php echo $test['testName'] . " (Code : " . $test['testCode'] . ")" ?></p>
                     <p class="text-primary font-weight-bold">Test Start On: </p>
                     <p><?php echo $startdate->format('d M Y, H:i ') ?></p>
                     <p class="text-primary font-weight-bold">Test End On: </p>

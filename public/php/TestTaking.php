@@ -39,13 +39,13 @@ $test = getTestCode($testCode);
         foreach ($questions as $question) {
             echo "<div class = 'col-md-12 shadow rounded p-3 mb-4 row'>";
             echo "<div class = 'col-md-12'>";
-            echo "<p>" . $num . ". " . $question['question'] . "</p><br>";
+            echo "<p>" . $num . ". " . htmlspecialchars($question['question']) . "</p><br>";
             echo "</div>";
             //echo "<div class='form-check'";
-            echo "<p class='ml-3'><input type = 'radio' class='form-check-input' id = 'choosedoption' value = 'a' name = 'choosedoption" . $num . "'> " . $question['option1'] . " </p>";
-            echo "<p class='ml-3'><input type = 'radio' class='form-check-input' id = 'choosedoption' value = 'b' name = 'choosedoption" . $num . "'> " . $question['option2'] . " </p>";
-            echo "<p class='ml-3'><input type = 'radio' class='form-check-input' id = 'choosedoption' value = 'c' name = 'choosedoption" . $num . "'> " . $question['option3'] . " </p>";
-            echo "<p class='ml-3'><input type = 'radio' class='form-check-input' id = 'choosedoption' value = 'd' name = 'choosedoption" . $num . "'> " . $question['option4'] . " </p>";
+            echo "<p class='ml-3'><input type = 'radio' class='form-check-input' id = 'choosedoption' value = 'a' name = 'choosedoption" . $num . "'> " . htmlspecialchars($question['option1']) . " </p>";
+            echo "<p class='ml-3'><input type = 'radio' class='form-check-input' id = 'choosedoption' value = 'b' name = 'choosedoption" . $num . "'> " . htmlspecialchars($question['option2']) . " </p>";
+            echo "<p class='ml-3'><input type = 'radio' class='form-check-input' id = 'choosedoption' value = 'c' name = 'choosedoption" . $num . "'> " . htmlspecialchars($question['option3']) . " </p>";
+            echo "<p class='ml-3'><input type = 'radio' class='form-check-input' id = 'choosedoption' value = 'd' name = 'choosedoption" . $num . "'> " . htmlspecialchars($question['option4']) . " </p>";
             //echo "</div>";
             echo "</div>";
             $num++;

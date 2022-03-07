@@ -23,7 +23,7 @@ function CaculateScore()
 }
 function getCheckBoxValue()
 {
-    return $_POST['public'] == true ? 1 : 0;
+    return isset($_POST['public']) && $_POST['public'] == true ? 1 : 0;
 }
 $code = generateRandomString(8);
 InsertTest($_SESSION['ID'], $_POST['testname'], $_POST['teststartdate'], $_POST['testenddate'], $_POST['testduration'], getCheckBoxValue(), CaculateScore(), $code, $_POST['testdescription']);

@@ -132,7 +132,7 @@ function InsertTest($hostID, $testname, $teststartdate, $testenddate, $testdurat
 }
 function InsertQuestion($code, $question, $option1, $option2, $option3, $option4, $correctoption, $score)
 {
-    $sql = "insert into tblquestions values('', '" . $code . "', '" . $question . "', '" . $option1 . "', '" . $option2 . "', '" . $option3 . "', '" . $option4 . "', '" . $correctoption . "', " . $score . ")";
+    $sql = "insert into tblquestions values('', '" . $code . "', '" . addslashes($question) . "', '" . addslashes($option1) . "', '" . addslashes($option2) . "', '" . addslashes($option3) . "', '" . addslashes($option4) . "', '" . $correctoption . "', " . $score . ")";
     $conn = ConnectToDatabase('examdb');
     if ($conn->query($sql) === TRUE) {
     } else echo "Error: " . $sql . "<br>" . $conn->error;
