@@ -7,7 +7,7 @@ if (empty($participants)) exit;
 </div>
 <div class="col-md-10 p-3 shadow rounded">
     <?php
-    echo "<table class='table table-dark'>";
+    echo "<table class='table table-striped'>";
     echo "<tr class='text-success'>";
     echo "<th>Test Taker Name</th>";
     echo "<th>Email</th>";
@@ -27,7 +27,7 @@ if (empty($participants)) exit;
             echo "<td> - </td>";
         } else {
             $date = new DateTime($result['SubmitDate']);
-            echo "<td>" . $date->format('d M Y, h:i') . "</td>";
+            echo "<td>" . $date->format('d M Y, H:i') . "</td>";
             echo "<td>" . $result['score'] . "</td>";
         }
         echo "</tr>";

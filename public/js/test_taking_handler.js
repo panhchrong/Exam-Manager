@@ -6,7 +6,7 @@ var QuestionsAnswered = document.getElementById('answered');
 var seconds = 0;
 var minutes = duration;
 var selected = 0;
-QuestionsAnswered.innerHTML =  "Questions answered : 0/" + totalQuestions;
+QuestionsAnswered.innerHTML =  "Total Question : " + totalQuestions;
 function countDown(){     
         if(minutes == 0 && seconds == 0) forceSubmit();
         if(seconds == 0){
@@ -20,13 +20,16 @@ function forceSubmit(){
     document.getElementById('test-form').submit();
 }
 function GradeTest(code){
-    document.getElementById("test-form").setAttribute("action", "../../server/GrandeTest.php?code="+code);
-    document.getElementById("test-form").submit();
+    var unanswer = totalQuestions;
+    for(var i = 1; i <= totalQuestions; i ++){
+        var answer = document.getElementsByName("choosedoption"+i);
+        for(var j = 0; j < 4; j++)
+            if(answer[j].checked) {unanswer--; break;}
+    }
+    if(unanswer > 0){
+        if(confirm("You still have " + unanswer + " unanswered question(s) do you wish to submit anyway?"))
+            document.getElementById("test-form").submit();
+    }else 
+        document.getElementById("test-form").submit();
 }
-function updateQuestionAswered(){
-    QuestionsAnswered.innerHTML = "Questions answered : " + selected + "/" + totalQuestions;
-}
-selct.forEach(element => {
-    element.setAttribute("onclick", "updateQuestionAnswered()")
-});
 var x = setInterval(countDown, 1000);

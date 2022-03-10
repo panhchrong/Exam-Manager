@@ -51,7 +51,7 @@ $test = getTestCode($testCode);
             $num++;
         }
         echo "<div class='col-md-12 shadow rounded p-3'>";
-        echo "<button type='submit' class='btn btn-success'>Submit</button>";
+        echo "<a type='submit' class='btn btn-success text-light' onclick='GradeTest()'>Submit</a>";
         echo "</div>";
         echo "</form>";
         ?>
