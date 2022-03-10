@@ -37,6 +37,19 @@ function searchTest($searchby, $searchvalue)
     }
     return null;
 }
+function getUserWithEmail($mail)
+{
+    $conn = ConnectToDatabase('examdb');
+    $query = 'select * from tblperson where email = ' . $mail;
+    $result = $conn->query($query);
+    if (!empty($result) && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        //echo $row['id'] . $row['username'] . $row['email'] . $row['_password'];
+        return $row;
+    } else {
+        return null;
+    }
+}
 function getUserWithID($id)
 {
     $conn = ConnectToDatabase('examdb');

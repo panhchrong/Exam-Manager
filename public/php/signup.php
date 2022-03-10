@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('../../server/database.php');
 $conn = ConnectToDatabase('examdb');
 if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['email'])) {
@@ -9,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['email'])) {
     } else {
         $sql = 'INSERT INTO tblperson(Username, Email, _Password) VALUES (\'' . $_POST['username'] . '\',\'' . $_POST['email'] . '\',\'' . $_POST['password'] . '\')';
         if ($conn->query($sql) === TRUE) {
-            header('Location: ./Index.php');
+            header('Location: ./login.php');
         }
     }
     $_POST['email'] = '';

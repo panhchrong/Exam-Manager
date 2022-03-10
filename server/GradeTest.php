@@ -49,7 +49,7 @@ foreach ($questions as $question) {
                 else $style = "color:red";
                 echo '<h2 style="' . $style . '">' . $score . '/' . $maxscore . '</h2>';
                 if (empty(checkIfResultExist($test['testID'], $_SESSION['ID']))) {
-                    $now = new DateTime();
+                    $now = new DateTime('now', new DateTimeZone("Asia/Phnom_Penh"));
                     $conn->query("insert into tbltestresult values('', " . $_SESSION['ID'] . ", " . $test['testID'] . ", '" . $now->format('Y-m-d\TH:i') . "', " . $score . ")");
                 }
                 ?>

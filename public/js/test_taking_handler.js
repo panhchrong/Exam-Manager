@@ -1,9 +1,11 @@
 var duration = parseInt(document.getElementById('timer').innerHTML);
 var totalQuestions = document.getElementById('answered').innerHTML;
+var select = document.querySelectorAll(`[id^="choosedoption"]`);
 var timer = document.getElementById('timer');
 var QuestionsAnswered = document.getElementById('answered');
 var seconds = 0;
 var minutes = duration;
+var selected = 0;
 QuestionsAnswered.innerHTML =  "Questions answered : 0/" + totalQuestions;
 function countDown(){     
         if(minutes == 0 && seconds == 0) forceSubmit();
@@ -21,4 +23,10 @@ function GradeTest(code){
     document.getElementById("test-form").setAttribute("action", "../../server/GrandeTest.php?code="+code);
     document.getElementById("test-form").submit();
 }
+function updateQuestionAswered(){
+    QuestionsAnswered.innerHTML = "Questions answered : " + selected + "/" + totalQuestions;
+}
+selct.forEach(element => {
+    element.setAttribute("onclick", "updateQuestionAnswered()")
+});
 var x = setInterval(countDown, 1000);

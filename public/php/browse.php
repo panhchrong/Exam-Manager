@@ -107,8 +107,8 @@ if (isset($_SESSION['ID']) && !empty($_SESSION['ID'])) {
                 if (!empty($published_test)) {
                     $now = new DateTime();
                     foreach ($published_test as $test) {
-                        $startdate = new DateTime($test['TestStartDate']);
-                        $enddate = new DateTime($test['TestEndDate']);
+                        $startdate = new DateTime($test['TestStartDate'], new DateTimeZone("Asia/Phnom_Penh"));
+                        $enddate = new DateTime($test['TestEndDate'], new DateTimeZone("Asia/Phnom_Penh"));
                         if ($enddate->getTimestamp() - $now->getTimestamp() < 0) {
                             updateTestStatus_Overdue($test['testID']);
                             continue;
@@ -117,8 +117,8 @@ if (isset($_SESSION['ID']) && !empty($_SESSION['ID'])) {
                         echo "<p class = 'text-warning'>Test Code: " . $test['testCode'] . "</p>";
                         echo "<hr class = 'h-0 w-100 bg-warning'";
                         echo "<p>Test Name: " . $test['testName'] . "</p>";
-                        echo "<p>Time Start: " . $startdate->format('d M Y, h:i') . "</p>";
-                        echo "<p>Time End: " . $enddate->format('d M Y, h:i') . "</p>";
+                        echo "<p>Time Start: " . $startdate->format('d M Y, H:i') . "</p>";
+                        echo "<p>Time End: " . $enddate->format('d M Y, H:i') . "</p>";
                         echo "<p>Participant: " . countPaticipant($test['testID'])['x'] . "</p>";
                         echo "</div>";
                     }
