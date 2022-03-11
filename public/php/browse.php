@@ -79,6 +79,7 @@ if (isset($_SESSION['ID']) && !empty($_SESSION['ID'])) {
             <hr class="h-0 w-100">
             <div class="row justify-content-center">
                 <?php
+                $testprint = 0;
                 if (!empty($participated_test)) {
                     $now = new DateTime();
                     foreach ($participated_test as $test) {
@@ -93,8 +94,10 @@ if (isset($_SESSION['ID']) && !empty($_SESSION['ID'])) {
                         echo "<p>Time End: " . $enddate->format('d M Y, h:i') . "</p>";
                         echo "<p>Host By: " . getUserWithID($test['hostID'])['Username'] . "</p>";
                         echo "</div>";
+                        $testprint += 1;
                     }
-                } else
+                }
+                if ($testprint == 0)
                     echo "<h4 class = 'text-secondary'>Seem like your haven't partake in anything yet</h4>";
                 ?>
             </div>
@@ -104,6 +107,7 @@ if (isset($_SESSION['ID']) && !empty($_SESSION['ID'])) {
             <hr class="h-0 w-100">
             <div class="row justify-content-center">
                 <?php
+                $testprint = 0;
                 if (!empty($published_test)) {
                     $now = new DateTime();
                     foreach ($published_test as $test) {
@@ -113,6 +117,7 @@ if (isset($_SESSION['ID']) && !empty($_SESSION['ID'])) {
                             updateTestStatus_Overdue($test['testID']);
                             continue;
                         }
+                        $testprint += 1;
                         echo "<div class = 'col-md-3 test-container rounded-2 m-1' style='cursor:pointer' id = '" . $test['testCode'] . "' onclick = 'tryTakeTest(this)'>";
                         echo "<p class = 'text-warning'>Test Code: " . $test['testCode'] . "</p>";
                         echo "<hr class = 'h-0 w-100 bg-warning'";
@@ -122,7 +127,8 @@ if (isset($_SESSION['ID']) && !empty($_SESSION['ID'])) {
                         echo "<p>Participant: " . countPaticipant($test['testID'])['x'] . "</p>";
                         echo "</div>";
                     }
-                } else
+                }
+                if ($testprint == 0)
                     echo "<h4 class = 'text-secondary'>Seem like your haven't made anything yet</h4>";
                 ?>
             </div>
