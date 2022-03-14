@@ -19,6 +19,7 @@ function NewQuestion(){
         inputs.setAttribute('style', 'height : 30px;');
         inputs.placeholder = "Answer Option " + i + "..";
         inputs.setAttribute('name', 'option[]');
+        inputs.setAttribute('autocomplete', 'off');
         div.appendChild(inputs);
     }
     var label = document.createElement('label');

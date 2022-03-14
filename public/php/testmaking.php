@@ -29,10 +29,10 @@ if (!isset($_SESSION['ID']) || empty($_SESSION['ID'])) {
                         <div class="col-md-11 mt-2 shadow row rounded">
                             <h4>Question 1:</h4>
                             <textarea name="questions[]" class="col-md-12 m-1" type="text" placeholder="Question..." rows="3"></textarea>
-                            <input name="option[]" class="col-md-10 m-1" style="height: 30px;" placeholder="Answer Option 1..">
-                            <input name="option[]" class="col-md-10 m-1" style="height: 30px;" placeholder="Answer Option 2..">
-                            <input name="option[]" class="col-md-10 m-1" style="height: 30px;" placeholder="Answer Option 3..">
-                            <input name="option[]" class="col-md-10 m-1" style="height: 30px;" placeholder="Answer Option 4..">
+                            <input name="option[]" class="col-md-10 m-1" style="height: 30px;" placeholder="Answer Option 1.." autocomplete="off">
+                            <input name="option[]" class="col-md-10 m-1" style="height: 30px;" placeholder="Answer Option 2.." autocomplete="off">
+                            <input name="option[]" class="col-md-10 m-1" style="height: 30px;" placeholder="Answer Option 3.." autocomplete="off">
+                            <input name="option[]" class="col-md-10 m-1" style="height: 30px;" placeholder="Answer Option 4.." autocomplete="off">
                             <label for="correctoption">Choose a correct option: </label>
                             <select name="correctoption[]" id="correctoption" class="mb-2 col-md-3 rounded" aria-label=" correctoption">
                                 <option value="a">a</option>

@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['email'])) {
                     <h3 class="signin-text mb-3">Sign Up</h3>
                     <div class="form-group">
                         <label for="usernmae">Username</label>
-                        <input type="text" name="username" class="form-control" id="username">
+                        <input type="text" name="username" class="form-control" id="username" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -44,11 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['email'])) {
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control" id="password">
+                        <input type="password" name="password" class="form-control" id="password" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label for="retypepassword">Retype Password</label>
-                        <input type="password" name="retypepassword" class="form-control" id="retypepassword">
+                        <input type="password" name="retypepassword" class="form-control" id="retypepassword" autocomplete="off">
                     </div>
                     <p id='err-msg' style="color:red"></p>
                     <a style="color:white !important" class="btn btn-info" onclick="validateInfo()">Sign Up</a>
